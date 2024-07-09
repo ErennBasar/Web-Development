@@ -25,22 +25,22 @@ let questions = [
   new Question(
     "1-Hangisi js paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm", d: "React" },
-    "Npm"
+    "c"
   ),
   new Question(
     "2-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
-    "Npm"
+    "c"
   ),
   new Question(
     "3-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
-    "Npm"
+    "b"
   ),
   new Question(
     "4-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
-    "Npm"
+    "c"
   ),
 ];
 
@@ -60,6 +60,7 @@ const quiz = new Quiz(questions);
 document.querySelector(".btn_start").addEventListener("click", function () {
   document.querySelector(".quiz_box").classList.add("active");
   showQuestion(quiz.getQuestion());
+  document.querySelector(".next_btn").classList.remove("show");
 });
 
 document.querySelector(".next_btn").addEventListener("click", function () {
@@ -67,10 +68,14 @@ document.querySelector(".next_btn").addEventListener("click", function () {
     document.querySelector(".quiz_box").classList.add("active");
     quiz.questionIndex += 1;
     showQuestion(quiz.getQuestion());
+    document.querySelector(".next_btn").classList.remove("show");
   } else {
     console.log("quiz bitti");
   }
 });
+const option_list = document.querySelector(".option_list");
+const correctIcon = `<div class="icon"><i class="fas fa-check"></i></div>`;
+const incorrectIcon = `<div class="icon"><i class="fas fa-times"></i></div>`;
 
 function showQuestion(question) {
   let soru = `<span>${question.text}</span>`;
@@ -83,6 +88,32 @@ function showQuestion(question) {
     </div>
     `;
   }
+
   document.querySelector(".question_text").innerHTML = soru;
-  document.querySelector(".option_list").innerHTML = options;
+  option_list.innerHTML = options;
+
+  const option = option_list.querySelectorAll(".option");
+
+  for (let opt of option) {
+    opt.setAttribute("onclick", "optionSelected(this)");
+  }
+}
+
+function optionSelected(option) {
+  let cevap = option.querySelector("span b").textContent;
+  let soru = quiz.getQuestion();
+
+  if (soru.checkAnswer(cevap)) {
+    option.classList.add("correct");
+    option.insertAdjacentHTML("beforeend", correctIcon);
+  } else {
+    option.classList.add("incorrect");
+    option.insertAdjacentHTML("beforeend", incorrectIcon);
+  }
+
+  for (let i = 0; i < option_list.children.length; i++) {
+    option_list.children[i].classList.add("disabled");
+  }
+
+  document.querySelector(".next_btn").classList.add("show");
 }
