@@ -2,10 +2,11 @@ function Question(text, choices, answer) {
   this.text = text;
   this.choices = choices;
   this.answer = answer;
-  this.checkAnswer = function (answer) {
-    return answer === this.answer;
-  };
 }
+
+Question.prototype.checkAnswer = function (answer) {
+  return answer === this.answer;
+};
 
 let question1 = new Question(
   "Hangisi js paket yöneticisidir?",
@@ -47,3 +48,4 @@ console.log(question1.choices);
 console.log(question1.answer);
 console.log(question1.checkAnswer("npm"));
 console.log(question1.checkAnswer("React"));
+console.log(questions);
