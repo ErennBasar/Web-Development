@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="" card-header>
+      <h3 class="cart-title h1" id="title">Todo App 2</h3>
+    </div>
+    <ul id="task-list">
+      <li class="task">Görev 1</li>
+      <li class="task">Görev 2</li>
+      <li class="task">Görev 3</li>
+    </ul>
+    <script>
+      let sonuc;
+      ul = document.getElementById("task-list");
+
+      sonuc = ul.children; // HTMLCollection(3) [li.task, li.task, li.task]
+      sonuc = ul.children[0]; // <li class="task">Görev 1</li>
+      sonuc = ul.lastElementChild; // <li class="task">Görev 3</li>
+
+      sonuc = document.getElementById("title").parentElement; // <div class="card-header">...</div>
+
+      console.log(sonuc);
+    </script>
+  </body>
+</html>

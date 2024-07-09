@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #deneme {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-header">
+      <h3 class="cart-title" id="title">Todo App</h3>
+      <h2 id="deneme">Deneme</h2>
+      <h2 id="deneme2">Deneme2</h2>
+    </div>
+    <ul>
+      <li>Görev 1</li>
+      <li>Görev 2</li>
+      <li>Görev 3</li>
+    </ul>
+    <script>
+      let sonuc;
+      sonuc = document.getElementById("title"); // <h3 id="title">Todo App</h3>
+      sonuc = document.getElementById("title").id; // title
+      sonuc = document.getElementById("title").className; // cart-title
+      sonuc = document.getElementById("title").classList; // ["cart-title"]
+
+      document.getElementById("title").style.fontSize = "50px";
+      document.getElementById("deneme2").style.fontSize = "30px";
+      document.getElementById("deneme2").style.color = "blue";
+
+      document.getElementById("deneme2").innerText = "Merhaba";
+
+      sonuc = document.querySelector("#title"); // <h3 id="title">Todo App</h3>
+      sonuc = document.querySelector(".cart-title"); // <h3 class="cart-title" id="title">Todo App</h3>
+      sonuc = document.querySelector("h3"); // <h3 id="title">Todo App</h3>
+
+      sonuc = document.querySelector("li"); // <li>Görev 1</li>
+      sonuc = document.querySelector("li:first-child"); // <li>Görev 1</li>
+      sonuc = document.querySelector("li:last-child"); // <li>Görev 3</li>
+      sonuc = document.querySelector("li:nth-child(2)"); // <li>Görev 2</li>
+
+      console.log(sonuc);
+    </script>
+  </body>
+</html>

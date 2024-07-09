@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #deneme {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-header">
+      <h3 class="cart-title" id="title">Todo App</h3>
+      <h2 id="deneme">Deneme</h2>
+      <h2 id="deneme2">Deneme2</h2>
+    </div>
+    <ul>
+      <li class="task">Görev 1</li>
+      <li class="task">Görev 2</li>
+      <li class="task">Görev 3</li>
+    </ul>
+    <script>
+      let sonuc;
+
+      taskList = document.getElementsByClassName("task"); // HTMLCollection(3) [li.task, li.task, li.task]
+      sonuc = document.getElementsByClassName("task")[0]; // <li class="task">Görev 1</li>
+
+      for (let task of taskList) {
+        task.style.color = "blue";
+      }
+      console.log(sonuc);
+    </script>
+  </body>
+</html>

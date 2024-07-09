@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form action="register.php"></form>
+    <table width="500">
+      <tr>
+        <td>
+          <label for="username">Kullanıcı Adı:</label>
+        </td>
+        <td>
+          <input
+            type="text"
+            id="username"
+            placeholder="Kullanıcı Adı "
+            required
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="password">Şifre:</label>
+        </td>
+        <td>
+          <input type="text" id="password" placeholder="Password" required />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit">Kayıt Ol</button>
+        </td>
+      </tr>
+    </table>
+    <div>
+      <label for="intro">Kendinizi Tanıtın </label>
+      <textarea id="intro" rows="5" cols="50"></textarea>
+    </div>
+    <div>
+      <p>Satın almak istediğiniz kursu seçiniz</p>
+      <input type="radio" id="html" name="dil" />
+      <label for="html">HTML</label>
+
+      <input type="radio" id="css" name="dil" />
+      <label for="css">CSS</label>
+
+      <input type="radio" id="js" name="dil" />
+      <label for="js">JS</label>
+    </div>
+    <div>
+      <p>En sevdiğiniz programlama dili/dilleri</p>
+      <input type="checkbox" id="python" name="dil" />
+      <label for="python">Python</label>
+
+      <input type="checkbox" id="java" name="dil" />
+      <label for="java">Java</label>
+
+      <input type="checkbox" id="c" name="dil" />
+      <label for="c">C</label>
+    </div>
+  </body>
+</html>

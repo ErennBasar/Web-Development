@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <header>
+      <h1><strong>Lütfen Formu Eksiksiz Doldurunuz</strong></h1>
+    </header>
+    <section>
+      <form action="register.php">
+        <div id="hesap bilgileri">
+          <h2><b>Hesap Bilgileriniz</b></h2>
+          <table width="500">
+            <tr>
+              <td><label for="username">Kullanıcı Adı:</label></td>
+              <td>
+                <input type="text" placeholder="Kullanıcı Adı" required />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="eposta">Email:</label></td>
+              <td>
+                <input type="email" id="eposta" placeholder="Email" required />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="password">Şifre:</label></td>
+              <td><input type="password" placeholder="Şifre" required /></td>
+            </tr>
+          </table>
+        </div>
+        <div id="kişisel bilgiler">
+          <h2>Kişisel Bilgiler</h2>
+          <table width="1100">
+            <tr>
+              <td><label for="name">İsminiz: </label></td>
+              <td><input type="text" placeholder="İsminiz" /></td>
+            </tr>
+            <tr>
+              <td><label for="surname">Soyadınız</label></td>
+              <td><input type="text" placeholder="Soyadınız" /></td>
+            </tr>
+            <tr>
+              <td><label for="city">Şehir</label></td>
+              <td>
+                <select id="city" name="şehir">
+                  <option value="istanbul">İstanbul</option>
+                  <option value="aydın">Aydın</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Cinsiyet</td>
+              <td>
+                <label for="cinsiyet">erkek</label>
+                <input type="radio" id="cinsiyet" name="cinsiyet" />
+                <label for="cinsiyet">kadın</label>
+                <input type="radio" id="cinsiyet" name="cinsiyet" />
+                <label for="cinsiyet">lpgbtqia++</label>
+                <input type="radio" id="cinsiyet" name="cinsiyet" />
+              </td>
+            </tr>
+            <tr>
+              <td>Hobileriniz</td>
+              <td>
+                <label for="hobi">yüzmek</label>
+                <input type="checkbox" id="hobi" name="hobi" />
+                <label for="hobi">koşmak</label>
+                <input type="checkbox" id="hobi" name="hobi" />
+                <label for="hobi">bisiklet sürmek</label>
+                <input type="checkbox" id="hobi" name="hobi" />
+                <label for="hobi">kitap okumak</label>
+                <input type="checkbox" id="hobi" name="hobi" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><button type="submit">Kaydet</button></td>
+            </tr>
+          </table>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
