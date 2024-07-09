@@ -1,11 +1,12 @@
-function Question(text, choices, answer) {
+function Question(text, choices, trueAnswer) {
+  //soruMetni, cevapecenekleri, dogruCevap
   this.text = text;
   this.choices = choices;
-  this.answer = answer;
+  this.trueAnswer = trueAnswer;
 }
 
 Question.prototype.checkAnswer = function (answer) {
-  return answer === this.answer;
+  return answer === this.trueAnswer;
 };
 
 let question1 = new Question(
@@ -23,7 +24,7 @@ let question2 = new Question(
 let questions = [
   new Question(
     "1-Hangisi js paket yönetim uygulamasıdır?",
-    { a: "Node.js", b: "Typescript", c: "Npm" },
+    { a: "Node.js", b: "Typescript", c: "Npm", d: "React" },
     "Npm"
   ),
   new Question(
@@ -57,11 +58,31 @@ Quiz.prototype.getQuestion = function () {
 const quiz = new Quiz(questions);
 
 document.querySelector(".btn_start").addEventListener("click", function () {
-  if (quiz.questions.length != quiz.questionIndex) {
+  document.querySelector(".quiz_box").classList.add("active");
+  showQuestion(quiz.getQuestion());
+});
+
+document.querySelector(".next_btn").addEventListener("click", function () {
+  if (quiz.questions.length != quiz.questionIndex + 1) {
     document.querySelector(".quiz_box").classList.add("active");
-    console.log(quiz.getQuestion());
     quiz.questionIndex += 1;
+    showQuestion(quiz.getQuestion());
   } else {
     console.log("quiz bitti");
   }
 });
+
+function showQuestion(question) {
+  let soru = `<span>${question.text}</span>`;
+  let options = "";
+
+  for (let i in question.choices) {
+    options += `
+    <div class="option">
+       <span><b>${i}</b>: ${question.choices[i]}</span>
+    </div>
+    `;
+  }
+  document.querySelector(".question_text").innerHTML = soru;
+  document.querySelector(".option_list").innerHTML = options;
+}
