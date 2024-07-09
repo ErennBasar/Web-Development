@@ -22,30 +22,45 @@ let question2 = new Question(
 
 let questions = [
   new Question(
-    "Hangisi js paket yönetim uygulamasıdır?",
+    "1-Hangisi js paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
     "Npm"
   ),
   new Question(
-    "Hangisi javascript paket yönetim uygulamasıdır?",
+    "2-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
     "Npm"
   ),
   new Question(
-    "Hangisi javascript paket yönetim uygulamasıdır?",
+    "3-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
     "Npm"
   ),
   new Question(
-    "Hangisi javascript paket yönetim uygulamasıdır?",
+    "4-Hangisi javascript paket yönetim uygulamasıdır?",
     { a: "Node.js", b: "Typescript", c: "Npm" },
     "Npm"
   ),
 ];
 
-console.log(question1.text);
-console.log(question1.choices);
-console.log(question1.answer);
-console.log(question1.checkAnswer("npm"));
-console.log(question1.checkAnswer("React"));
-console.log(questions);
+function Quiz(questions) {
+  this.questions = questions;
+  this.questionIndex = 1;
+}
+
+//prototype
+Quiz.prototype.getQuestion = function () {
+  return this.questions[this.questionIndex];
+};
+
+//quiz constructor
+const quiz = new Quiz(questions);
+
+document.querySelector(".btn-start").addEventListener("click", function () {
+  if (quiz.questions.length != quiz.questionIndex) {
+    console.log(quiz.getQuestion());
+    quiz.questionIndex += 1;
+  } else {
+    console.log("quiz bitti");
+  }
+});
