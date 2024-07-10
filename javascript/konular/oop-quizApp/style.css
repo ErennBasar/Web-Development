@@ -1,5 +1,6 @@
 .btn_start,
-.quiz_box {
+.quiz_box,
+.score_box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -79,11 +80,43 @@
   pointer-events: auto;
 
   transform: scale(0.9);
-  transition: all 1s ease;
+  transition: all 0.7s ease;
 }
 
 .quiz_box footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* score box */
+.score_box.active {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.score_box {
+  width: 550px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: all 0.5s ease;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.score_box .icon {
+  font-size: 90px;
+  color: #ffd33d;
+  margin-bottom: 10px;
+}
+
+.score_box score_text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
