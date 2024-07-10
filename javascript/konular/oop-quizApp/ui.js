@@ -7,6 +7,12 @@ function UI() {
 
   this.option_list = document.querySelector(".option_list"); // Option list
 
+  this.score_box = document.querySelector(".score_box"); // Score box
+
+  this.btn_replay = document.querySelector(".btn_replay"); // replay button
+
+  this.btn_quit = document.querySelector(".btn_quit"); // quit button
+
   this.correctIcon = `<div class="icon"><i class="fas fa-check"></i></div>`; // Correct icon
 
   this.incorrectIcon = `<div class="icon"><i class="fas fa-times"></i></div>`; // Incorrect icon
@@ -36,4 +42,9 @@ UI.prototype.showQuestion = function (question) {
 UI.prototype.showQuestionIndex = function (nextQuestion, totalQuestion) {
   let tag = `<span class="badge bg-warning">${nextQuestion}/${totalQuestion}</span>`;
   document.querySelector(".quiz_box .question_index").innerHTML = tag;
+};
+
+UI.prototype.showScore = function (trueAnswerIndex, totalQuestion) {
+  let tag = `toplam ${totalQuestion} sorudan ${trueAnswerIndex} doğru cevap`;
+  document.querySelector(".score_box .score_text").innerHTML = tag;
 };
