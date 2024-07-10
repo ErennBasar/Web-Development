@@ -22,19 +22,30 @@ ui.btn_next.addEventListener("click", function () {
     ui.btn_next.classList.remove("show");
   } else {
     console.log("quiz bitti");
+
+    ui.quiz_box.classList.remove("active");
+    ui.score_box.classList.add("active");
+    ui.showScore(quiz.trueAnswerIndex, quiz.questions.length);
   }
 });
-/*
-const option_list = document.querySelector(".option_list");
-const correctIcon = `<div class="icon"><i class="fas fa-check"></i></div>`;
-const incorrectIcon = `<div class="icon"><i class="fas fa-times"></i></div>`;
-*/
+
+ui.btn_quit.addEventListener("click", function () {
+  window.location.reload();
+});
+
+ui.btn_replay.addEventListener("click", function () {
+  quiz.questionIndex = 0;
+  quiz.trueAnswerIndex = 0;
+  ui.btn_start.click();
+  ui.score_box.classList.remove("active");
+});
 
 function optionSelected(option) {
   let cevap = option.querySelector("span b").textContent;
   let soru = quiz.getQuestion();
 
   if (soru.checkAnswer(cevap)) {
+    quiz.trueAnswerIndex += 1;
     option.classList.add("correct");
     option.insertAdjacentHTML("beforeend", ui.correctIcon);
   } else {
