@@ -81,3 +81,9 @@
   transform: scale(0.9);
   transition: all 1s ease;
 }
+
+.quiz_box footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
