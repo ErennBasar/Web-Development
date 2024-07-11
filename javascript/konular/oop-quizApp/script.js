@@ -5,6 +5,7 @@ const ui = new UI();
 ui.btn_start.addEventListener("click", function () {
   ui.quiz_box.classList.add("active");
   startTimer(10);
+  startTimerLine();
   ui.showQuestion(quiz.getQuestion());
   ui.showQuestionIndex(quiz.questionIndex + 1, quiz.questions.length);
 
@@ -17,14 +18,18 @@ ui.btn_next.addEventListener("click", function () {
 
     quiz.questionIndex += 1;
     clearInterval(counter);
+    clearInterval(line);
+
     startTimer(10);
+    startTimerLine();
     ui.showQuestion(quiz.getQuestion());
 
     ui.showQuestionIndex(quiz.questionIndex + 1, quiz.questions.length);
     ui.btn_next.classList.remove("show");
   } else {
     console.log("quiz bitti");
-
+    clearInterval(counter);
+    clearInterval(line);
     ui.quiz_box.classList.remove("active");
     ui.score_box.classList.add("active");
     ui.showScore(quiz.trueAnswerIndex, quiz.questions.length);
@@ -44,6 +49,7 @@ ui.btn_replay.addEventListener("click", function () {
 
 function optionSelected(option) {
   clearInterval(counter);
+  clearInterval(line);
   let cevap = option.querySelector("span b").textContent;
   let soru = quiz.getQuestion();
 
@@ -87,6 +93,21 @@ function startTimer(time) {
       }
 
       ui.btn_next.classList.add("show");
+    }
+  }
+}
+let line;
+function startTimerLine() {
+  let line_width = 0;
+
+  line = setInterval(timer, 29);
+
+  function timer() {
+    line_width += 1.43;
+    ui.time_line.style.width = line_width + "px";
+
+    if (line_width > 549) {
+      clearInterval(line);
     }
   }
 }
