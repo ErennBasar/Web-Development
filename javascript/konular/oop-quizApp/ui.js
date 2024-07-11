@@ -20,6 +20,8 @@ function UI() {
   this.time_text = document.querySelector(".time_text"); // Time text
 
   this.time_second = document.querySelector(".time_second"); // Time second
+
+  this.time_line = document.querySelector(".time_line"); // Time line
 }
 
 UI.prototype.showQuestion = function (question) {
