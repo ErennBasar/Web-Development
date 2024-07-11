@@ -4,7 +4,7 @@ const ui = new UI();
 
 ui.btn_start.addEventListener("click", function () {
   ui.quiz_box.classList.add("active");
-
+  startTimer(10);
   ui.showQuestion(quiz.getQuestion());
   ui.showQuestionIndex(quiz.questionIndex + 1, quiz.questions.length);
 
@@ -16,6 +16,8 @@ ui.btn_next.addEventListener("click", function () {
     //ui.quiz_box.classList.add("active");
 
     quiz.questionIndex += 1;
+    clearInterval(counter);
+    startTimer(10);
     ui.showQuestion(quiz.getQuestion());
 
     ui.showQuestionIndex(quiz.questionIndex + 1, quiz.questions.length);
@@ -41,6 +43,7 @@ ui.btn_replay.addEventListener("click", function () {
 });
 
 function optionSelected(option) {
+  clearInterval(counter);
   let cevap = option.querySelector("span b").textContent;
   let soru = quiz.getQuestion();
 
@@ -58,4 +61,32 @@ function optionSelected(option) {
   }
 
   ui.btn_next.classList.add("show");
+}
+
+let counter;
+function startTimer(time) {
+  counter = setInterval(timer, 1000);
+
+  function timer() {
+    ui.time_second.textContent = time;
+    time--;
+
+    if (time < 0) {
+      clearInterval(counter);
+
+      ui.time_text.textContent = "Time Off";
+
+      let cevap = quiz.getQuestion().trueAnswer;
+
+      for (let option of ui.option_list.children) {
+        if (option.querySelector("span b").textContent == cevap) {
+          option.classList.add("correct");
+          option.insertAdjacentHTML("beforeend", ui.correctIcon);
+        }
+        option.classList.add("disabled");
+      }
+
+      ui.btn_next.classList.add("show");
+    }
+  }
 }
