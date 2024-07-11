@@ -16,6 +16,10 @@ function UI() {
   this.correctIcon = `<div class="icon"><i class="fas fa-check"></i></div>`; // Correct icon
 
   this.incorrectIcon = `<div class="icon"><i class="fas fa-times"></i></div>`; // Incorrect icon
+
+  this.time_text = document.querySelector(".time_text"); // Time text
+
+  this.time_second = document.querySelector(".time_second"); // Time second
 }
 
 UI.prototype.showQuestion = function (question) {
