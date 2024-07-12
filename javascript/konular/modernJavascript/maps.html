@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const ogrenciler = new Map();
+
+      ogrenciler.set("11a", ["Ali", "Veli", "Deli"]);
+      ogrenciler.set(true, "ali can");
+
+      console.log(ogrenciler.get(true));
+
+      let sonuc;
+
+      sonuc = ogrenciler.size;
+      sonuc = ogrenciler.has("11a");
+
+      console.log(sonuc);
+
+      for (let i of ogrenciler.keys()) {
+        console.log(i);
+      }
+      for (let i of ogrenciler.values()) {
+        console.log(i);
+      }
+      for (let i of ogrenciler.entries()) {
+        console.log(i[1]);
+      }
+    </script>
+  </body>
+</html>
