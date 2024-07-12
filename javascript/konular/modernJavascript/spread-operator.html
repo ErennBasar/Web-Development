@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //ES5
+      const msg = ["Hello", "My", "Name", "Is", "John"];
+      let sonuc = "";
+
+      for (i of msg) {
+        sonuc += i + " ";
+      }
+      console.log(sonuc);
+
+      //ES6
+      console.log(...msg);
+
+      const arr1 = [1, 2];
+      const arr2 = [3, 4];
+      const arr3 = [...arr1, ...arr2];
+      console.log(arr3);
+    </script>
+  </body>
+</html>
