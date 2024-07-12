@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let sayilar = [1, 20, 10, 21, 22, 31];
+      /* ES5
+      let teksayilar = [];
+      for (let i of sayilar) {
+        if (i % 2 == 1) {
+          teksayilar.push(i);
+        }
+      }
+      console.log(teksayilar);
+    
+
+      //ES6
+      const tekSayiKontrol = (sayi) => sayi % 2 == 1;
+
+      const tekSayilar = sayilar.filter(tekSayiKontrol);
+
+      console.log(tekSayilar);
+      */
+
+      const urunler = [
+        { id: 1, isim: "Samsung S8", fiyat: 3000 },
+        { id: 2, isim: "Samsung S9", fiyat: 4000 },
+        { id: 3, isim: "Samsung S10", fiyat: 5000 },
+        { id: 4, isim: "Samsung S20", fiyat: 6000 },
+      ];
+      /*  const sonuc = urunler
+        .filter((urun) => urun.fiyat > 4000) //filter ile fiyatı 4000 den büyük olanları alırız.
+        .map((urun) => urun.isim);  // map ile sadece isimleri alırız
+// samsumg s10 ve s20 yi çıktı olarak alırız  */
+
+      //   const sonuc = urunler.find((urun) => urun.fiyat > 4000); // find ile fiyatı 4000 den büyük olanı alırız. ilk bulduğu değeri döndürür.
+      // 5000 fiyatlı samsung s10 u alırız.
+
+      const sonuc = urunler.findIndex((urun) => urun.fiyat > 4000); // findIndex ile fiyatı 4000 den büyük olanın indexini döndürür.
+      // 2
+      console.log(sonuc);
+    </script>
+  </body>
+</html>
