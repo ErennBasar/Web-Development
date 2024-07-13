@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Kisi {
+        constructor(ad, meslek, dogumYili) {
+          this.ad = ad;
+          this.meslek = meslek;
+          this.dogumYili = dogumYili;
+        }
+        yasHesapla() {
+          return new Date().getFullYear() - this.dogumYili;
+        }
+
+        get ad() {
+          return this._ad;
+        }
+        set ad(value) {
+          if (value.length < 3) {
+            console.log("Ad en az 3 karakter olmalıdır");
+            return;
+          }
+          this._ad = value;
+        }
+
+        get dogumYili() {
+          return this._dogumYili;
+        }
+        set dogumYili(value) {
+          if (value < 1924 || value > new Date().getFullYear()) {
+            console.log("Geçersiz doğum yılı");
+            return;
+          }
+          this._dogumYili = value;
+        }
+      }
+      let kisi1 = new Kisi("Al", "Developer", 1995);
+
+      console.log(kisi1);
+      console.log(kisi1.ad);
+    </script>
+  </body>
+</html>
