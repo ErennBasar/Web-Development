@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Parent ( Temel sınıf)
+      class Kisi {
+        constructor(ad, dogumYili) {
+          console.log("kisi constructor çalıştı");
+
+          this.ad = ad;
+          this.dogumYili = dogumYili;
+        }
+        yasHesapla() {
+          return new Date().getFullYear() - this.dogumYili;
+        }
+
+        kendiniTanit() {
+          return `Merhaba ben ${this.ad}`;
+        }
+      }
+      //child (türetilmiş sınıf)
+      class Ogrenci extends Kisi {
+        constructor(ad, dogumYili, okulNo) {
+          console.log("ogrenci constructor çalıştı");
+          super(ad, dogumYili); //Kisi constructor'ı çağrıldı
+          this.okulNo = okulNo;
+        }
+
+        dersCalis() {
+          return `${this.ad} ders çalışıyor`;
+        }
+        kendiniTanit() {
+          return `Merhaba ben ${this.ad}`;
+        }
+      }
+
+      let kisi = new Kisi("Ali", 1995);
+      let ogrenci = new Ogrenci("Veli", 2000, 1234);
+
+      console.log(kisi.yasHesapla());
+      console.log(ogrenci.yasHesapla());
+      console.log(ogrenci.dersCalis());
+      console.log(kisi.kendiniTanit());
+      console.log(ogrenci.kendiniTanit());
+    </script>
+  </body>
+</html>
