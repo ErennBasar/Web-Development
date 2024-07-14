@@ -1,17 +1,18 @@
 .container {
-  width: 350px;
+  width: 450px;
 }
 #controls i {
-  font-size: 20px;
+  font-size: 30px;
 
-  color: blue;
+  color: #ffd33d;
 
   margin: 20px;
 }
 #progress {
   margin-bottom: 20px;
 }
-#progress .times {
+#progress .times,
+#controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
