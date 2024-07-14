@@ -8,7 +8,7 @@ const next = document.querySelector("#controls #next");
 
 const player = new MusicPlayer(musicList);
 
-let music = player.getMusic();
+//let music = player.getMusic();
 
 window.addEventListener("load", () => {
   let music = player.getMusic();
@@ -19,9 +19,44 @@ function displayMusic(music) {
   title.innerText = music.getName();
   singer.innerText = music.singer;
   image.src = "img/" + music.img;
-  Audio.src = "mp3/" + music.file;
+  audio.src = "mp3/" + music.file;
 }
 
 play.addEventListener("click", () => {
-  audio.play();
+  const isMusicPlay = container.classList.contains("playing");
+  isMusicPlay ? pauseMusic() : playMusic();
 });
+
+prev.addEventListener("click", () => {
+  prevMusic();
+});
+
+next.addEventListener("click", () => {
+  nextMusic();
+});
+
+function prevMusic() {
+  player.previous();
+  let music = player.getMusic();
+  displayMusic(music);
+  playMusic();
+}
+
+function nextMusic() {
+  player.next();
+  let music = player.getMusic();
+  displayMusic(music);
+  playMusic();
+}
+
+function pauseMusic() {
+  container.classList.remove("playing");
+  play.classList = "fa-solid fa-play";
+  audio.pause();
+}
+
+function playMusic() {
+  container.classList.add("playing");
+  play.classList = "fa-solid fa-pause";
+  audio.play();
+}
