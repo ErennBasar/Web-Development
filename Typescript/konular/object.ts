@@ -1,7 +1,4 @@
-export interface point {
-  x: number;
-  y: number;
-}
+import { point } from "./Point";
 
 interface vehicle {
   currentLocation: point;
