@@ -1,4 +1,4 @@
-let a: number = 5;
+export let myNumber: number = 5;
 let b: string = "a";
 let c: boolean = true;
 let d: any;
@@ -18,4 +18,4 @@ enum Payment {
 }
 
 let payment = Payment.havale;
-console.log(payment);
+console.log(payment); // 11
