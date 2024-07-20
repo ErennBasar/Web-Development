@@ -11,4 +11,7 @@ interface passenger {
 interface vehicle {
   currentLocation: point;
   travelTo(point: point): void;
+  getDistance(pointA: point, pointB: point): number;
+  addPassenger(passenger: passenger): void;
+  removePassenger(passenger: passenger): void;
 }

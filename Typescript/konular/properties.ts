@@ -1,7 +1,4 @@
-interface point {
-  x: number;
-  y: number;
-}
+import { point } from "./Point";
 
 interface vehicle {
   travelTo(point: point): void;
