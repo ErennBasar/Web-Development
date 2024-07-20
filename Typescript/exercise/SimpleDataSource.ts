@@ -3,7 +3,7 @@ import { Product } from "./Product";
 export class SimpleDataSource {
   private products: Array<Product>;
 
-  consturctor() {
+  constructor() {
     this.products = new Array<Product>(
       new Product(1, "Samsung S5", "Telefon", 1000),
       new Product(2, "Samsung S6", "Telefon", 2000),
@@ -11,7 +11,7 @@ export class SimpleDataSource {
       new Product(4, "Samsung S8", "Telefon", 4000)
     );
   }
-  getProducts(): Array<Product> {
+  getProducs(): Array<Product> {
     return this.products;
   }
 }
