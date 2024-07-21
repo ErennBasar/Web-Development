@@ -2,6 +2,9 @@ const calculator_display = document.querySelector(".display");
 const calculator_buttons = document.querySelector(".buttons");
 
 let displayValue = "0";
+let firstValue = null;
+let operator = null;
+let waitingForSecondValue = false;
 
 /*updateDisplay();*/
 
@@ -17,7 +20,10 @@ calculator_buttons.addEventListener("click", function (e) {
   if (element.classList.contains("numbers")) {
     console.log("Number button clicked:", element.textContent);
   } else if (element.classList.contains("islem")) {
-    console.log("islem button clicked:", element.textContent);
+    // console.log("islem button clicked:", element.textContent);
+
+    handleOperator(element.value);
+    return;
   } else if (element.classList.contains("mod")) {
     console.log("mod button clicked:", element.textContent);
   } else if (element.classList.contains("clear")) {
@@ -39,9 +45,28 @@ calculator_buttons.addEventListener("click", function (e) {
   inputNumber(element.value);
   updateDisplay();
 });
+function handleOperator(nextOperator) {
+  const value = parseFloat(displayValue);
+
+  if (firstValue === null) {
+    firstValue = value;
+  }
+
+  waitingForSecondValue = true;
+  operator = nextOperator;
+
+  console.log(displayValue, firstValue, operator, waitingForSecondValue);
+}
 
 function inputNumber(num) {
-  displayValue = displayValue === "0" ? num : displayValue + num;
+  if (waitingForSecondValue) {
+    displayValue = num;
+    waitingForSecondValue = false;
+  } else {
+    displayValue = displayValue === "0" ? num : displayValue + num;
+  }
+
+  console.log(displayValue, firstValue, operator, waitingForSecondValue);
 }
 
 function inputDecimal() {
