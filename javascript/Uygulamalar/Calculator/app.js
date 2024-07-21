@@ -23,6 +23,7 @@ calculator_buttons.addEventListener("click", function (e) {
     // console.log("islem button clicked:", element.textContent);
 
     handleOperator(element.value);
+    updateDisplay();
     return;
   } else if (element.classList.contains("mod")) {
     console.log("mod button clicked:", element.textContent);
@@ -50,12 +51,30 @@ function handleOperator(nextOperator) {
 
   if (firstValue === null) {
     firstValue = value;
+  } else if (operator) {
+    const result = calculate(firstValue, value, operator);
+
+    displayValue = String(result);
+    firstValue = result;
   }
 
   waitingForSecondValue = true;
   operator = nextOperator;
 
   console.log(displayValue, firstValue, operator, waitingForSecondValue);
+}
+
+function calculate(first, second, operator) {
+  if (operator === "+") {
+    return first + second;
+  } else if (operator === "-") {
+    return first - second;
+  } else if (operator === "*") {
+    return first * second;
+  } else if (operator === "/") {
+    return first / second;
+  }
+  return second;
 }
 
 function inputNumber(num) {
