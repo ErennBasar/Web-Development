@@ -49,12 +49,17 @@ calculator_buttons.addEventListener("click", function (e) {
 function handleOperator(nextOperator) {
   const value = parseFloat(displayValue);
 
+  if (operator && waitingForSecondValue) {
+    operator = nextOperator;
+    return;
+  }
+
   if (firstValue === null) {
     firstValue = value;
   } else if (operator) {
     const result = calculate(firstValue, value, operator);
 
-    displayValue = String(result);
+    displayValue = `${parseFloat(result.toFixed(7))}`;
     firstValue = result;
   }
 
