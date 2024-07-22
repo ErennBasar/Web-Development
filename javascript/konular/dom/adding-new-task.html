@@ -20,7 +20,7 @@
                 <div class="input-group">
                   <input type="text" id="txtTaskName" class="form-control" />
                   <button
-                    type="button"
+                    type="submit"
                     class="btn btn-primary"
                     id="btnAddNewTask"
                   >
@@ -59,7 +59,7 @@
 
         for (let gorev of gorevListesi) {
           let li = `
-            
+
             <li class="task list-group-item">
                 <div class="form-check">
                     <input type="checkbox" id="${gorev.id}" class="form-check-input" />
@@ -72,9 +72,18 @@
         }
       }
 
-      let btnEkle = document.querySelector("#btnAddNewTask");
+      document
+        .querySelector("#btnAddNewTask")
+        .addEventListener("click", newTask);
+      document
+        .querySelector("#btnAddNewTask")
+        .addEventListener("keypress", function () {
+          if (event.key == "Enter") {
+            document.getElementById("btnAddNewTask").click();
+          }
+        });
 
-      btnEkle.addEventListener("click", () => {
+      function newTask(event) {
         let taskInput = document.querySelector("#txtTaskName");
 
         if (taskInput.value == "") {
@@ -87,11 +96,12 @@
           taskInput.value = "";
           displayTasks();
         }
-      });
+        event.preventDefault();
+      }
 
-      document.querySelector("#btnClear").addEventListener("click", () => {
+      /*document.querySelector("#btnClear").addEventListener("click", () => {
         console.log("click event: clear event");
-      });
+      });*/
     </script>
   </body>
 </html>
