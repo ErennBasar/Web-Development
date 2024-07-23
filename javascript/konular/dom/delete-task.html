@@ -147,6 +147,13 @@
         gorevListesi.splice(deleteId, 1);
         displayTasks();
       }
+
+      document
+        .querySelector("#btnClear")
+        .addEventListener("click", function () {
+          gorevListesi = [];
+          displayTasks();
+        });
     </script>
   </body>
 </html>
