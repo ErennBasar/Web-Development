@@ -11,5 +11,9 @@ import { ProductListComponent } from './product-list/product-list.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'ng-app';
+  private title = 'Home Page';
+
+  getTitle() {
+    return this.title;
+  }
 }
