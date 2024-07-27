@@ -1,21 +1,40 @@
-<div *ngFor="let product of products" class="card mb-3">
-  <div class="row">
-    <div class="col-3">
-      <img
-        src="{{ product.imageUrl }}"
-        alt=""
-        class="img-fluid rounded-start"
-      />
-    </div>
-    <div class="col-9">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="cart-text">{{ product.description }}</p>
+<div *ngFor="let product of products">
+  <div *ngIf="product.isActive" class="card mb-3">
+    <div class="row">
+      <div class="col-3">
+        <img
+          src="{{ product.imageUrl }}"
+          alt=""
+          class="img-fluid rounded-start"
+        />
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="cart-text">{{ product.description }}</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
+<!--
 <ul>
   <li *ngFor="let p of productList">{{ p }}</li>
+</ul>
+-->
+<div class="alert alert-warning" *ngIf="productList.length == 0">
+  No products
+</div>
+
+<ul *ngIf="productList.length > 0">
+  <li
+    *ngFor="
+      let item of productList;
+      let i = index;
+      let first = first;
+      let last = last
+    "
+  >
+    {{ i + 1 }} - {{ item }} (First: {{ first }}, Last: {{ last }})
+  </li>
 </ul>
