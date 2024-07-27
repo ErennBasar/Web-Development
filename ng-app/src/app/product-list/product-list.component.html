@@ -1,14 +1,43 @@
-<div *ngFor="let product of products">
-  <div *ngIf="product.isActive" class="card mb-3">
-    <div class="row">
-      <div class="col-3">
-        <img
-          src="{{ product.imageUrl }}"
-          alt=""
-          class="img-fluid rounded-start"
-        />
+<div *ngIf="getProducts().length > 0; else noProducts">
+  <ng-template
+    [ngTemplateOutlet]="productList1"
+    [ngTemplateOutletContext]="{ _products: getProducts() }"
+  ></ng-template>
+  <ng-template
+    [ngTemplateOutlet]="productList2"
+    [ngTemplateOutletContext]="{ _products: getProducts() }"
+  ></ng-template>
+</div>
+
+<ng-template #productList1 let-p="_products">
+  <h2>En Çok Satanlar</h2>
+  <div *ngFor="let product of p">
+    <div *ngIf="product.isActive" class="card mb-3">
+      <div class="row">
+        <div class="col-3">
+          <img
+            src="{{ product.imageUrl }}"
+            alt=""
+            class="img-fluid rounded-start"
+          />
+        </div>
+        <div class="col-9">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="cart-text">{{ product.description }}</p>
+          </div>
+        </div>
       </div>
-      <div class="col-9">
+    </div>
+  </div>
+</ng-template>
+<ng-template #productList2 let-p="_products">
+  <h2>En Beğenilenler</h2>
+  <div class="row">
+    <div *ngFor="let product of p" class="col-3">
+      <div *ngIf="product.isActive" class="card mb-3">
+        <img src="{{ product.imageUrl }}" alt="" class="card-img-top" />
+
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
           <p class="cart-text">{{ product.description }}</p>
@@ -16,25 +45,8 @@
       </div>
     </div>
   </div>
-</div>
-<!-- 
-<ul>
-  <li *ngFor="let p of productList">{{ p }}</li>
-</ul>
--->
-<div class="alert alert-warning" *ngIf="productList.length == 0">
-  No products
-</div>
+</ng-template>
 
-<ul *ngIf="productList.length > 0">
-  <li
-    *ngFor="
-      let item of productList;
-      let i = index;
-      let first = first;
-      let last = last
-    "
-  >
-    {{ i + 1 }} - {{ item }} (First: {{ first }}, Last: {{ last }})
-  </li>
-</ul>
+<ng-template #noProducts>
+  <div class="alert alert-warning">No products</div>
+</ng-template>
