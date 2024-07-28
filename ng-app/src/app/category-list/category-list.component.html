@@ -1,0 +1,18 @@
+<h5>Category</h5>
+
+<ng-template
+  [ngTemplateOutlet]="CategoryList1"
+  [ngTemplateOutletContext]="{ _category: c }"
+></ng-template>
+
+<ng-template #CategoryList1 let-k="_category">
+  <div class="list-group">
+    <a
+      *ngFor="let i of k"
+      href="#"
+      class="list-group-item list-group-item-action"
+    >
+      {{ i.name }}
+    </a>
+  </div>
+</ng-template>
