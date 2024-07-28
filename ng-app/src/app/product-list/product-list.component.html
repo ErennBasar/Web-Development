@@ -9,9 +9,9 @@
   ></ng-template>
 </div>
 
-<ng-template #productList1 let-p="_products">
+<ng-template #productList1 let-i="_products">
   <h2>En Çok Satanlar</h2>
-  <div *ngFor="let product of p">
+  <div *ngFor="let product of i">
     <div *ngIf="product.isActive" class="card mb-3">
       <div class="row">
         <div class="col-3">
@@ -31,10 +31,10 @@
     </div>
   </div>
 </ng-template>
-<ng-template #productList2 let-p="_products">
+<ng-template #productList2 let-i="_products">
   <h2>En Beğenilenler</h2>
   <div class="row">
-    <div *ngFor="let product of p" class="col-3">
+    <div *ngFor="let product of i" class="col-3">
       <div *ngIf="product.isActive" class="card mb-3">
         <img src="{{ product.imageUrl }}" alt="" class="card-img-top" />
 
