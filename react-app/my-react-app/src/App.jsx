@@ -3,12 +3,14 @@ import Footer from "./Footer.jsx";
 import Card from "./Card.jsx";
 import Button from "./button/Button.jsx";
 import Student from "./Student.jsx";
+import UserGreeting from "./UserGreeting.jsx";
 
 function App() {
   return (
     <>
       <Header></Header>
       <Button></Button>
+      <UserGreeting isLoggedIn={true} ></UserGreeting>
       <Student name="Ahmet" age={30} isStudent={false}></Student>
       <Student name="Eren" age={23} isStudent={true}></Student>
       <Student name="Ali" age={38} isStudent={false}></Student>
