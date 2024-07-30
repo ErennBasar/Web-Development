@@ -1,13 +1,13 @@
 function Card() {
   return (
-    <div class="card">
+    <div className="card">
       <img
-        class="card-image"
+        className="card-image"
         src="https://via.placeholder.com/150"
         alt="profile picture"
       />
-      <h2 class="card-title">Eren Basar</h2>
-      <p class="card-text">CS Student</p>
+      <h2 className="card-title">Eren Basar</h2>
+      <p className="card-text">CS Student</p>
       <hr />
     </div>
   );
