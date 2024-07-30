@@ -5,19 +5,20 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a href="#"></a>Home
+            <a href="#">Home</a>
           </li>
           <li>
-            <a href="#"></a> About
+            <a href="#">About</a>
           </li>
           <li>
-            <a href="#"></a> Services
+            <a href="#">Services</a>
           </li>
           <li>
-            <a href="#"></a> Contact
+            <a href="#">Contact</a>
           </li>
         </ul>
       </nav>
+      <hr />
     </header>
   );
 }
