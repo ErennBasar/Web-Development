@@ -69,4 +69,11 @@
   color: hsl(0, 0%, 45%);
   cursor: pointer;
 }
+.img-tr{
+
+   max-width: 30%;
+   height: auto;
+
+   display: block;
+}
 
