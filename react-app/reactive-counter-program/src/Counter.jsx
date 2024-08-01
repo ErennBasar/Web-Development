@@ -10,8 +10,8 @@ import React, {useState} from 'react';
             <button className='counter-button-increment' onClick={()=>{
              
                setCount(c => c +1);  // Updater function
-               setCount(c => c +1);  // A function passed as an argument to
-               setCount(c => c +1);  // setState() usually ex. setYear(y=>y+1)
+               setCount(c => c +1);  // A function passed as an argument to setState() usually ex. setYear(y=>y+1)
+               setCount(c => c +1);  
                                                                                                         
             }} >Increment</button>
 
