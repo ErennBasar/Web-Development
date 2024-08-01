@@ -8,7 +8,7 @@ function Button() {
 
   return <button className={styles.button} onClick={()=> clickEvent2("eren ")} >Click </button>;
   */
-
+  
   let count = 0;
   
   const handleClick = (name) => {
@@ -20,7 +20,10 @@ function Button() {
     
 
   return <button className={styles.button} onClick={()=>handleClick("bro")} > Click </button>;
+  
 
+
+  
 }
 
 export default Button;
