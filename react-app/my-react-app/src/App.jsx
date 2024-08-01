@@ -5,6 +5,7 @@ import Button from "./button/Button.jsx";
 import Student from "./Student.jsx";
 import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx";
+import ProfilePicture from "./ProfilePicture.jsx";
 
 function App() {
   const fruits = [{id: 1,name:"apple",calories:95 },
@@ -23,6 +24,7 @@ const vegetables = [{id: 6,name:"broccoli",calories:55 },
   return (
     <>
       <Header></Header>
+      <ProfilePicture></ProfilePicture>
       <Button></Button>
 
       {fruits.length > 0 ? <List  items={fruits} category="Fruits"></List> : <List   category=""></List> }
