@@ -1,0 +1,10 @@
+#number-input,
+#text-input-brand,
+#text-input-model{
+
+    padding: 5px;
+    margin-bottom: 10px;
+    
+    
+    display: flex;
+}
