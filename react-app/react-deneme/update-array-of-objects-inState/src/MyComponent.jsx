@@ -20,6 +20,10 @@ function MyComponent(){
         setCarBrand("");
         setCarModel("");
     }
+    function removeCar(index){
+           
+        setCars(cars.filter((_ , i) => i !== index ));
+    }
 
     return(
         <div>
@@ -32,7 +36,8 @@ function MyComponent(){
             <button onClick={addNewCar} >Add Car</button>
 
             <ul>
-                {cars.map((car,index) => <li key={index} >{car.year} {car.brand} {car.model} </li>)}
+                {cars.map((car,index) => <li key={index} onClick={() => removeCar(index)} >
+                     {car.year} {car.brand} {car.model} </li>)}
             </ul>
         </div>
     );
