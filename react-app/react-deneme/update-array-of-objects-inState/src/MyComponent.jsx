@@ -15,6 +15,10 @@ function MyComponent(){
                         model:carModel
         }
         setCars(c => [...c,newCar] )
+
+        setCarYear("");
+        setCarBrand("");
+        setCarModel("");
     }
 
     return(
