@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import MyComponent from './MyComponent'
+import DigitalClock from './DigitalClock'
 
 function App() {
 
     return (
     
-        <MyComponent></MyComponent>
+        <DigitalClock></DigitalClock>
 
     );
 }
