@@ -14,21 +14,56 @@ import React, {useState,useEffect} from 'react';
 
 function MyComponent(){
 
-    const [count,setCount] = useState(5);
-    const [color,setColor] = useState("green");
+//     const [count,setCount] = useState(5);
+//     const [color,setColor] = useState("green");
 
-    useEffect(()=>{
-        document.title = `Count: ${count} ${color}`
+//     useEffect(()=>{
+//         document.title = `Count: ${count} ${color}`
         
-    },[count,color])
+//     },[count,color])
 
-    return(
-    <div>
-        <p style={{color:color}} >Count:{count}</p>
-        <button onClick={()=> setCount(c => c + 1)} >Add</button>
-        <button onClick={()=> setCount(c => c - 1)} >Subtract</button>
-        <button onClick={()=> setColor(c => c === "green" ? "red" : "green" )} >Change Color</button>
-    </div>
-    );
+//     return(
+//     <div>
+//         <p style={{color:color}} >Count:{count}</p>
+//         <button onClick={()=> setCount(c => c + 1)} >Add</button>
+//         <button onClick={()=> setCount(c => c - 1)} >Subtract</button>
+//         <button onClick={()=> setColor(c => c === "green" ? "red" : "green" )} >Change Color</button>
+//     </div>
+//     );
+
+  const [width,setWidth] = useState(window.innerWidth);
+  const [heigth,setHeigth] = useState(window.innerHeight);
+
+  useEffect(()=>{
+    window.addEventListener("resize",handleResize);
+    console.log("EVENT LISTENER ADDED");
+
+        return() => {
+            window.removeEventListener("resize",handleResize);
+            console.log("EVENT LISTENER REMOVED");
+        }
+  },[]);
+
+  useEffect(() => {
+
+    document.title = `size: ${width} x ${heigth} `;
+  },[width,heigth]);
+
+  function handleResize(){
+    setWidth(window.innerWidth);
+    setHeigth(window.innerHeight);
+  }
+
+
+
+return (
+    <>
+        <p>Window Width: {width}px</p>
+        <p>Window Heigth: {heigth}px</p>
+    </>
+);
+
+
+
 }
 export default MyComponent;
